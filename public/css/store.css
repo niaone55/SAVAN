@@ -1,0 +1,18 @@
+body {
+    font-family: 'Lora';
+    background: #81706f;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+  }
+  .maron{
+      height: 70px;
+      background-color: rgba(47, 23, 15, 0.9);
+  }
+  .modal-body{
+    height: 250px;
+    width: 500px;
+    background:#81706f ;
+  
+}
+
