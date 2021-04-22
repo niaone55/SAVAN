@@ -25,11 +25,6 @@
 
 <body>
 
-  <h1 class="site-heading text-center text-white d-none d-lg-block">
-    <span class="site-heading-upper text-primary mb-3">Bienvenue a la Bibliothèque</span>
-    <span class="site-heading-lower">Un autre monde</span>
-  </h1>
-
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
     <div class="container">
@@ -40,16 +35,15 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="home.html">Home
-              <span class="sr-only">(current)</span>
+            <a class="nav-link text-uppercase text-expanded" href="home.html">Accueil
             </a>
           </li>
          
           <li class="nav-item active px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="products">Products</a>
+            <a class="nav-link text-uppercase text-expanded" href="products">Produits</a>
           </li>
           <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="store">Store</a>
+            <a class="nav-link text-uppercase text-expanded" href="store">Stock</a>
           </li>
         </ul>
       </div>
@@ -59,7 +53,31 @@
   <section class="page-section">
 
      <div class= " beige">
+        <div class="science"> 
+           <select name="TYPE" id="TYPE" type="text" style="height:80px; width:300px" >
+           <option value="TYPE">TYPE   ({{$count}})</option>
+           
+           @foreach($datas as $data)
+           <optgroup label="{{$data['nom_type']}}"></optgroup>
+           @foreach($data['livres'] as $livre)
+           <option value="{{$livre->id}}">{{$livre->book_name}}</option>
+           @endforeach
+           @endforeach
+           </select>
+        
+        </div>
 
+        <div class="auteur"> 
+           <select name="AUTEUR" id="AUTEUR" type="text" style="height:80px; width:300px;" >
+           <option value="AUTEUR">AUTEUR  </option>
+           @foreach($products as $product)
+           <optgroup label="{{$product['nom_auteur']}}">
+           @foreach($product['stores'] as $store)
+           <option value="{{$store->id}}">{{$store->book_name}}</option>
+           @endforeach
+           @endforeach
+           </select>
+        </div>
      </div>
    
   </section>

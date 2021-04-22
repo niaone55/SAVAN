@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use App\Country;
+use App\Auteur;
+use App\Type;
+
 
 class AccountController extends Controller
 {
@@ -10,42 +14,42 @@ class AccountController extends Controller
     {
         return view('store');
     }
+
     public function traitement()
     {
-
+//  dd(request()->all());
         request()->validate([
             'book_name'=>['required' ],
             'date'=>['required' ],
-            'country'=>['required' ],
+            'countries'=>['required' ],
             'type'=>['required' ],
-            'autor_name'=>['required' ],
+            'auteur'=>['required' ],
             
-
-
         ]);
-        
-    $utilisateur= Book::create ([
+
+         $utilisateur= Country::create([
+         'nom'=>request('countries'),
+
+         ]);
+            
+        // $type=Type::create([
+        // 'nom'=>request('type'),
+        // ]);
+
+        // $auteur=Auteur::create([
+        //     'nom'=>request('auteur'),
+            
+        //     ]);
+        // dd(request()->all());
+     Book::create ([
         'book_name'=>request('book_name'),
         'date'=>request('date'),
-        'country'=>request('country'),
-        'type'=>request('type'),
-        'autor_name'=>request('autor_name'),
-    
-    ]);
-  
-    return 'formulaire envoyé';
+         'country_id'=>$utilisateur->id,
+        'type_id'=>request('type'),
+        'auteur_id'=>request('auteur'),
+    ]); 
+    return redirect()->back()->with(["reponse"=>"Livre enregistré avec succès"]);
 
-    }
-
-    public function liste()
-    {
-        $utilisateur= \App\Book::all();
-
-        return view('store', [
-
-            'store'=>$utilisateur,
-
-        ]);
     }
 
 }

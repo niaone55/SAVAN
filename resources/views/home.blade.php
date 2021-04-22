@@ -22,15 +22,13 @@
   <link href="{{asset('css/business-casual.min.css')}}" rel="stylesheet">
   <link rel="stylesheet" href=" {{asset('css/style.css')}}"> 
  
- 
-
 </head>
 
 <body>
 
   <h1 class="site-heading text-center text-white d-none d-lg-block">
-    <span class="site-heading-upper text-primary mb-3">BIENVENU A LA BIBLIOTHEQUE</span>
-    <span class="site-heading-lower">Un autre monde </span>
+    <span class="site-heading-upper text-primary mb-3">BIENVENU Admin</span>
+    <span class="site-heading-lower">Bibliothèque SAVAN </span>
   </h1>
 
   <!-- Navigation -->
@@ -43,16 +41,14 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item active px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="home.html">Home
-              <span class="sr-only">(current)</span>
+            <a class="nav-link text-uppercase text-expanded" href="home.html">Accueil
             </a>
           </li>
-         
           <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="products">Products</a>
+            <a class="nav-link text-uppercase text-expanded" href="products">Produits</a>
           </li>
           <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="store">Store</a>
+            <a class="nav-link text-uppercase text-expanded" href="store">Stock</a>
           </li>
         </ul>
       </div>
@@ -71,28 +67,13 @@
           <p class="mb-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium quod sequi accusamus! Id dolor soluta, nobis magnam iusto illo, necessitatibus architecto repellat obcaecati dolorum, repudiandae porro impedit! Explicabo, voluptas! Veniam.
           </p>
           <div class="intro-button mx-auto">
-            <a class="btn btn-primary btn-xl" href="#">Visit Us Today!</a>
+            <a class="btn btn-primary btn-xl" href="store">Gerez votre stock!</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="page-section cta">
-    <div class="container">
-      <div class="row">
-        <div class="col-xl-9 mx-auto">
-          <div class="cta-inner text-center rounded">
-            <h2 class="section-heading mb-4">
-              <span class="section-heading-upper">A propos</span>
-              <span class="section-heading-lower">venez a nous</span>
-            </h2>
-            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla fugit voluptatum reiciendis officia, aliquid veniam impedit excepturi ratione. Aut odit eos quo architecto! At quod voluptatem a iusto molestiae nisi.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <footer class="footer text-faded text-center py-5">
     <div class="container">

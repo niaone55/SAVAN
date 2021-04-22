@@ -21,20 +21,8 @@
     <link href="{{asset('css/business-casual.min.css')}}" rel="stylesheet">
 
     <link rel="stylesheet" href="{{asset('css/store.css')}}">
-    
-    <link rel="stylesheet" href="{{asset('datatables.min.css')}}">
-    <link rel="stylesheet" href="{{asset('bootstrap.min.css')}}">
-    
-
   </head>
-
   <body>
-
-    <h1 class="site-heading text-center text-white d-none d-lg-block">
-      <span class="site-heading-upper text-primary mb-3">Bienvenue à la Bibliothèque</span>
-      <span class="site-heading-lower">Un autre monde</span>
-    </h1>
-
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
       <div class="container">
@@ -45,16 +33,15 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="home.html">Home
-                <span class="sr-only">(current)</span>
+              <a class="nav-link text-uppercase text-expanded" href="home.html">Accueil
               </a>
             </li>
           
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="products">Products</a>
+              <a class="nav-link text-uppercase text-expanded" href="products">Produits</a>
             </li>
             <li class="nav-item active px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="store">Store</a>
+              <a class="nav-link text-uppercase text-expanded" href="store">Stock</a>
             </li>
           </ul>
         </div>
@@ -78,21 +65,34 @@
             <form action="{{route('modal')}}" method="post">
               <div class="nom">
               @csrf
-                <input  type="text" placeholder="Nom du livre" name="book_name">
+                <input  type="text" placeholder="Nom du livre" name="book_name" style>
               </div>
-              <div class="date">
+              <div class="date nom">
                 <input  type="date" placeholder="Date" name="date">
               </div>
-              <div class="pays">
-                <input  type="text" placeholder="Pays" name="country">
+              <div class="pays nom">
+                <input  type="text" placeholder="Pays" name="countries">
               </div>
-              <div class="type">
-                <input  type="select" placeholder="Type" name="type">
+              <div class="type nom">
+              <select name="type" id="type">
+              @foreach($types as $types)
+              <option value="{{$types['id']}}">{{$types['nom']}}</option>
+              @endforeach
+              </select>
+              
               </div>
-              <div class="auteur">
-                <input  type="text" placeholder="Nom de l'auteur" name="autor_name">
-              </div>
+              
+              <select name="auteur" id="auteur">
+              
+              @foreach($auteurs as $auteur)
+              <option value="{{$auteur['id']}}">{{$auteur['nom']}}</option>
+              @endforeach
+              </select>
+                
+              <div class=buton>
               <button type="submit" class="btn btn-primary">Envoyer</button>
+              </div>
+              
             </form>
         
         </div>
@@ -104,22 +104,35 @@
     </div>
   </div>
 </div>
-
-        <div class="row">
+<div class="row">
           <div class="col-xl-9 mx-auto">
             <div class="cta-inner text-center rounded">
-                <div class="container maron">
-                {{$store[0]['book_name']}}
-                
-               </div>
-              
+<table class="tableau-style">
+                        <thead>
+                          <tr>
+                            <th>Nom du livre</th>
+                            <th>Date d'édition</th>
+                            <th>Pays</th>
+                            <th>Type</th>
+                            <th>Nom de l'auteur</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          </tbody>
+                          @foreach($books as $book)
+                            <tr>
+                              <td> {{$book->book_name}} </td>
+                              <td> {{$book->date}}</td>
+                              <td>{{$book->country->nom}} </td>
+                              <td> {{$book->type->nom}}</td>
+                              <td> {{$book->auteur->nom}}</td>
+                            </tr>
+                            @endforeach
+                        </table>
+                        </div>            
           </div>
         </div>
-      </div>
     </section>
-
-    
-
     <footer class="footer text-faded text-center py-5">
       <div class="container">
         <p class="m-0 small">Copyright &copy; Your Website 2018</p>
@@ -134,16 +147,6 @@
     <script>
       $('.list-hours li').eq(new Date().getDay()).addClass('today');
     </script>
-
-    <!-- jquery data table -->
-
-<script src="{{asset('jquery-3.5.1.min.js')}}"></script>
-    <script src="{{asset('datatables.min.js')}}"></script>
-<script>
-    $(document).ready( function () {
-        $('#exemple').DataTable();
-    } );
-</script>
 
   </body>
 
